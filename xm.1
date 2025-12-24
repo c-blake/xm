@@ -1,0 +1,164 @@
+.\" xm.1x
+.\" Copyright Charles Blake
+.TH XM 1x
+.SH NAME
+xm \- quickly & interactively magnify/zoom part of the screen
+.SH SYNOPSIS
+.B xm
+[ \-d)isplay \fIDP\fP ] [ \-n)et ] [ \-f)ont \fIFN\fP ] [ \-\-fontH \fIPX\fP ]
+[ \-x)mag \fIPX\fP ] [ \-y)mag \fIPX\fP ] [ \-o)utG \fIXGEOM\fP ]
+[ \-i)nG \fIXGEOM\fP ] [ \-u)nshifted \fIPX\fP ] [ \-s)hifted \fIPX\fP ]
+[ \-\-gHS \fIPX\fP ] [ \-\-gHO \fIPX\fP ]
+[ \-\-gVS \fIPX\fP ] [ \-\-gVO \fIPX\fP ]
+[ \-b)ox ] [ \-B)Width \fIPX\fP ] [ \-b)Color \fIINT\fP ]
+[ \-c)hase ] [ \-t)ime \fIMILLISEC\fP ] [ \-w)atch \fIPATH\fP ]
+[ \-h ]
+.SH OPTIONS
+.LP
+.TP 5
+.B \-d)isplay \fIDISPLAY\fP
+X display to use.
+.TP 5
+.B \-n)et
+Force network transparent graphics, not X11 shm.  Default: \fIoff\fP
+.TP 5
+.B \-f)ont \fIX11_FONT\fP
+Set font used for on-screen help.  Default: \fInone\fP
+.TP 5
+.B \-\-fontH \fIPIXELS\fP
+Set height/spacing for on-screen help font.  Default: \fI0\fP|fontHeight
+.TP 5
+.B \-x)mag \fIPIXELS\fP
+How many x pixels in magnified output for each 1 in input area.
+.TP 5
+.B \-y)mag \fIPIXELS\fP
+How many y pixels in magnified output for each 1 in input area.
+.TP 5
+.B \-o)utG \fIX11_GEOMETRY\fP
+\fBXParseGeometry\fP size & position of \fIOUT\fP window.  Default: WM Placed
+.TP 5
+.B \-i)nG \fIX11_GEOMETRY\fP
+\fBXParseGeometry\fP size & position of initial \fIIN\fP area.  Dimensions are
+multiplied by \fImag\fPs to set \fIOUT\fP geometry.  Default: \fI256 256\fP
+.TP 5
+.B \-u)nshifted \fIPIXELS\fP
+Step size in pixels for unshifted arrow key motion.  Default: \fI8\fP
+.TP 5
+.B \-s)hifted \fIUNSHIFTED\fP
+Step size in pixels for shifted arrow key motion.  Default: \fI1\fP
+.TP 5
+.B \-\-gHS \fIPIXELS\fP
+\fBg\fPrid \fBH\fPorizontal line \fBS\fPpacing in pixels.  Default: \fI30\fP
+.TP 5
+.B \-\-gHO \fIPIXELS\fP
+\fBg\fPrid \fBH\fPorizontal line \fBO\fPffset in pixels.  Default: \fI30\fP
+.TP 5
+.B \-\-gVS \fIPIXELS\fP
+\fBg\fPrid \fBV\fPertical line \fBS\fPpacing in pixels.  Default: \fI30\fP
+.TP 5
+.B \-\-gVO \fIPIXELS\fP
+\fBg\fPrid \fBV\fPertical line \fBO\fPffset in pixels.  Default: \fI30\fP
+.TP 5
+.B \-b)ox \fR
+Toggle drawing bounding box around zoomed area.  Default: \fIon\fP
+.TP 5
+.B \-B)Width \fR
+Set width in pixels of the edges of the bounding box.  Default: \fI4\fP
+.TP 5
+.B \-BC)olor \fR
+Set color as a decimal version of an 0xRRGGBB color.  Default: \f255\fP
+NOTE: bash&zsh let you convert to decimal with, e.g. \fI$((16#B800B8))\fP which
+produces "MAG)enta".
+.TP 5
+.B \-c)hase \fR
+Toggle chasing pointer to define the zoomed area.  Default: \fIon\fP
+.TP 5
+.B \-t)ime  \fIMICROSEC\fP
+Time to sleep between image captures.   Default: \fI40_000\fP (~25 FPS).
+\fI0\fP means sample & repaint as fast as possible.
+.TP 5
+.B \-w)watch \fIPATH\fP
+Monitor \fBst_mtime\fP of file \fIPATH\fP. If it changes, print configuration &
+toggle pointer chasing.  This is useful if focus follows pointers to chase to a
+specific area, and then display/freeze it by invoking a WM action that updates
+\fIWATCH\fP.
+.TP 5
+.BR \-h | \-\-help
+Print a brief help message for the CLI.
+.SH FILES
+\fI${XM_CONFIG:-${XDG_CONFIG_HOME:-$HOME/.config}}/xm\fP can set
+pre-command-line values for all above using full length option keys in Nim
+\fIparsecfg\fP syntax (~INI-file).
+.SH DESCRIPTION
+.BR xm
+displays in its window a magnified area of the X11 display (which can include
+the magnified area itself).
+Users can interactively change various things as described below.
+.SH INTERACTIVE WINDOW COMMANDS
+.LP
+Once xm is running, users can enter keyboard commands:
+.LP
+.TP 5
+.B x/y
+NEXT \+, \-, g applies to only this axis, not both axes
+.TP 5
+.B s
+NEXT \+, \- applies to \fIlarger\fP of the two step sizes for arrows
+.TP 5
+.B \+/\-
+increase / decrease selected value by 1
+.TP 5
+.B g
+toggle Grid on & off -- sort of.  Rather than a simple toggle, the action is
+\fIalign = scale - align\fP.  So, if alignment is never changed from 0, it is a
+toggle.  Axis-specific \fBg\fP re-zeros alignment.  E.g. \fBx g y g g\fP resets
+both aligns & then turns off the grid.
+.TP 5
+.B Arrow Keys
+Operate By Shifted/Unshifted \fBS\fPtep Sizes.  Mnemonically, \fBCtrl\fP is
+about \fISIZES\fP while \fBAlt\fP is about \fIthe GRID\fP.
+.RS
+.IP "\fBNoModifier\fP" 11
+Pan zoomed area in direction of arrow
+.IP "\fBOnlyCtrl\fP" 11
+Resize zoom view window by direction of arrow
+.IP "\fBCtrl-Alt\fP" 11
+Change spacing of xy-grid lines to move grid corners in direction of arrow (<-: -, ->: +)
+.IP "\fBOnlyAlt\fP" 11
+Change alignment of xy-grid lines to move grid corners in direction of arrow (<-: -, ->: +)
+.RE
+.TP 5
+.B b
+toggle Box on & off
+.TP 5
+.B c
+toggle pointer Chase on & off
+.TP 5
+.B p
+Print a current configuration replicating relaunch command
+.TP 5
+.B h
+toggle Help xor-overlay (activated by any illegal key)
+.TP 5
+.B q
+Quit, printing frames processed
+.SH "SEE ALSO"
+.BR xmag (1x)
+.BR xzoom (1x)
+.BR XParseGeometry (3)
+.SH NOTES
+.LP 5
+\(dg \fBxm\fP is given with no warranty but works for me.
+.LP 5
+\(dg This complements \fBxmag\fP which has a very different "snapshot" usage.
+.LP 5
+\(dg Pointer chasing can compete with both Window Manager (WM) resize ops and
+\fBxm\fP keyboard panning controls.  Just disable chase as needed.
+.SH AUTHOR
+Itai Nahshon <nahshon@best.com> originally wrote \fBxzoom\fP in the mid-1990s.
+github.com/mbarakatt added pointer tracking to a heavily patched Debian variant.
+In 2025, Charles Blake rewrote the ideas into Nim \fBxm\fP, dropping rotation &
+title changes & extending CLI/UI, adding/re-thinking much, such as bounding box
+draws, chase/box/shm as run-time states, WM interactions, near screen edge
+behavior, kb-based resize/grid spec/edit/step size, help text overlay, watch
+files, cfg print, hash-based frame-write skips for >10x speed-up, etc., etc.
