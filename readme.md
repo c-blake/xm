@@ -24,10 +24,10 @@ I have UHD (aka 2160p aka 4K) displays.  I occasionally use old programs like
 idea.  Temporary zoom for a guest with poorer eyesight or who is further away
 from the screen is another.  More generally, it's not bad for any presentation
 to guide audience attention.  There are web pages where firefox/chrome mess up
-page layouts quite a bit.  This bypasses layout complexity using dynamic redraws
-over an unrelated window.  There are surely more since "I see" has come to
-broadly mean "I understand", perhaps culminating in "icic" chat-ese { or lately
-maybe some emoji(s)? }.
+page layouts quite a bit or literally will not zoom the page element you want.
+This bypasses layout complexity using dynamic redraws over an unrelated window.
+There are surely more since "I see" has come to broadly mean "I understand",
+perhaps culminating in "icic" chat-ese { or lately maybe some emoji(s)? }.
 
 It should be pretty fast &| use little CPU.  For small, static 128x128 areas, I
 clocked it at 36000+ FPS on a 2023-era i7-1370P Linux box running vanilla xorg.
