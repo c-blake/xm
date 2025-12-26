@@ -29,8 +29,10 @@ from the screen is another.  More generally, it's not bad for any presentation
 to guide audience attention.  There are web pages where firefox/chrome mess up
 page layouts quite a bit or literally will not zoom the page element you want.
 This bypasses layout complexity using dynamic redraws over an unrelated window.
-There are surely more since "I see" has come to broadly mean "I understand",
-perhaps culminating in "icic" chat-ese { or lately maybe some emoji(s)? }.
+(This is the example in the animated GIF of this `readme.md` where a quick
+screenshot was unzoomable while the surround text was.)  There are surely more
+since "I see" has come to broadly mean "I understand", perhaps culminating in
+"icic" chat-ese { or lately maybe some emoji(s)? }.
 
 It should be pretty fast &| use little CPU.  For small, static 128x128 areas, I
 clocked it at 36000+ FPS on a 2023-era i7-1370P Linux box running vanilla xorg.
