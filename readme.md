@@ -1,5 +1,7 @@
 # `xzoom`-alike written in Nim, simplified & extended to become `xm`
 
+![chromeInlineImg.gif](media/chromeInlineImg.gif)
+
 ## Installation
 A simple `nimble install xm` *should* work, but if it does not, you can (in any
 scratch directory) do (either as root or amended with appropriate `sudo`/etc.):
@@ -13,9 +15,11 @@ nim c -p=../cligen -d:release xm &&
 ```
 Either way, you probably want to create a `$HOME/.config/xm`.  I do at least
 `font = "-adobe-courier-bold-r-normal--34-240-100-100-m-200-iso8859-1"` there,
-but you need that font installed.  Then all you need to do is run `xm&`. { OS/X
-with its XQuartz requires (at least) Screen Recording perms - basically if
-`xmag` works then so should `xm`, but it could be some work to get going. }.
+but you need that font installed.  Then all you need to do is run `xm&`.  I've
+not yet tried building the binary on anything beyond Linux, but I'd expect most
+BSDs would work well.  { X11 compatibility layers, e.g. XQuartz on OSX, require
+(at least) screen recording perms, but basically if `xmag` works then so should
+`xm`, but it could be some work to get going }.
 
 ## Applications
 I have UHD (aka 2160p aka 4K) displays.  I occasionally use old programs like
