@@ -1,6 +1,6 @@
 # `xzoom`-alike written in Nim, simplified & extended to become `xm`
 
-![chromeInlineImg.gif](media/chromeInlineImg.gif)
+![chromeInlineImg.gif](docs/chromeInlineImg.gif)
 
 ## Installation
 A simple `nimble install xm` *should* work, but if it does not, you can (in any
@@ -41,7 +41,7 @@ should be pretty fast &| use little CPU.  For small, static 128x128 pixel areas,
 I clocked it at 36000+ FPS on a 2023-era i7-1370P Linux box running vanilla
 xorg.  With CLI flags and keys you can turn on / off the bounding box or chasing
 the pointer or a re-spaceable/shiftable grid etc.  The man page
-[xm.1](https://c-blake.github.io/xm/media/xm.html) more completely documents it.
+[xm.1](https://c-blake.github.io/xm/docs/xm.html) more completely documents it.
 
 ## Sources / History
 While a manual re-write in Nim to a degree that copyright makes little sense, it
