@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<!-- This is an automatically generated file.  Do not edit.
+   xm.1x
+   Copyright Charles Blake
+ -->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    table.head, table.foot { width: 100%; }
+    td.head-rtitle, td.foot-os { text-align: right; }
+    td.head-vol { text-align: center; }
+    .Nd, .Bf, .Op { display: inline; }
+    .Pa, .Ad { font-style: italic; }
+    .Ms { font-weight: bold; }
+    .Bl-diag > dt { font-weight: bold; }
+    code.Nm, .Fl, .Cm, .Ic, code.In, .Fd, .Fn, .Cd { font-weight: bold;
+      font-family: inherit; }
+  </style>
+  <title>XM(1x)</title>
+</head>
+<body>
+<table class="head">
+  <tr>
+    <td class="head-ltitle">XM(1x)</td>
+    <td class="head-vol"></td>
+    <td class="head-rtitle">XM(1x)</td>
+  </tr>
+</table>
+<div class="manual-text">
+<section class="Sh">
+<h1 class="Sh" id="NAME"><a class="permalink" href="#NAME">NAME</a></h1>
+<p class="Pp">xm - quickly &amp; interactively magnify/zoom part of the
+  screen</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SYNOPSIS"><a class="permalink" href="#SYNOPSIS">SYNOPSIS</a></h1>
+<p class="Pp"><b>xm</b> [ -d)isplay <i>DP</i> ] [ -n)et ] [ -f)ont <i>FN</i> ] [
+    --fontH <i>PX</i> ] [ -x)mag <i>PX</i> ] [ -y)mag <i>PX</i> ] [ -o)utG
+    <i>XGEOM</i> ] [ -i)nG <i>XGEOM</i> ] [ -u)nshifted <i>PX</i> ] [ -s)hifted
+    <i>PX</i> ] [ --gHS <i>PX</i> ] [ --gHO <i>PX</i> ] [ --gVS <i>PX</i> ] [
+    --gVO <i>PX</i> ] [ -b)ox ] [ -B)Width <i>PX</i> ] [ -b)Color <i>INT</i> ] [
+    -c)hase ] [ -t)ime <i>MILLISEC</i> ] [ -w)atch <i>PATH</i> ] [ -h ]</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="OPTIONS"><a class="permalink" href="#OPTIONS">OPTIONS</a></h1>
+<dl class="Bl-tag">
+  <dt id="d)isplay"><a class="permalink" href="#d)isplay"><b>-d)isplay
+    <i>DISPLAY</i></b></a></dt>
+  <dd>X display to use.</dd>
+  <dt id="n)et"><a class="permalink" href="#n)et"><b>-n)et</b></a></dt>
+  <dd>Force network transparent graphics, not X11 shm. Default: <i>off</i></dd>
+  <dt id="f)ont"><a class="permalink" href="#f)ont"><b>-f)ont
+    <i>X11_FONT</i></b></a></dt>
+  <dd>Set font used for on-screen help. Default: <i>none</i></dd>
+  <dt id="fontH"><a class="permalink" href="#fontH"><b>--fontH
+    <i>PIXELS</i></b></a></dt>
+  <dd>Set height/spacing for on-screen help font. Default:
+    <i>0</i>|fontHeight</dd>
+  <dt id="x)mag"><a class="permalink" href="#x)mag"><b>-x)mag
+    <i>PIXELS</i></b></a></dt>
+  <dd>How many x pixels in magnified output for each 1 in input area.</dd>
+  <dt id="y)mag"><a class="permalink" href="#y)mag"><b>-y)mag
+    <i>PIXELS</i></b></a></dt>
+  <dd>How many y pixels in magnified output for each 1 in input area.</dd>
+  <dt id="o)utG"><a class="permalink" href="#o)utG"><b>-o)utG
+    <i>X11_GEOMETRY</i></b></a></dt>
+  <dd><b>XParseGeometry</b> size &amp; position of <i>OUT</i> window. Default:
+      WM Placed</dd>
+  <dt id="i)nG"><a class="permalink" href="#i)nG"><b>-i)nG
+    <i>X11_GEOMETRY</i></b></a></dt>
+  <dd><b>XParseGeometry</b> size &amp; position of initial <i>IN</i> area.
+      Dimensions are multiplied by <i>mag</i>s to set <i>OUT</i> geometry.
+      Default: <i>256 256</i></dd>
+  <dt id="u)nshifted"><a class="permalink" href="#u)nshifted"><b>-u)nshifted
+    <i>PIXELS</i></b></a></dt>
+  <dd>Step size in pixels for unshifted arrow key motion. Default: <i>8</i></dd>
+  <dt id="s)hifted"><a class="permalink" href="#s)hifted"><b>-s)hifted
+    <i>UNSHIFTED</i></b></a></dt>
+  <dd>Step size in pixels for shifted arrow key motion. Default: <i>1</i></dd>
+  <dt id="gHS"><a class="permalink" href="#gHS"><b>--gHS
+    <i>PIXELS</i></b></a></dt>
+  <dd><b>g</b>rid <b>H</b>orizontal line <b>S</b>pacing in pixels. Default:
+      <i>30</i></dd>
+  <dt id="gHO"><a class="permalink" href="#gHO"><b>--gHO
+    <i>PIXELS</i></b></a></dt>
+  <dd><b>g</b>rid <b>H</b>orizontal line <b>O</b>ffset in pixels. Default:
+      <i>30</i></dd>
+  <dt id="gVS"><a class="permalink" href="#gVS"><b>--gVS
+    <i>PIXELS</i></b></a></dt>
+  <dd><b>g</b>rid <b>V</b>ertical line <b>S</b>pacing in pixels. Default:
+      <i>30</i></dd>
+  <dt id="gVO"><a class="permalink" href="#gVO"><b>--gVO
+    <i>PIXELS</i></b></a></dt>
+  <dd><b>g</b>rid <b>V</b>ertical line <b>O</b>ffset in pixels. Default:
+      <i>30</i></dd>
+  <dt id="b)ox"><a class="permalink" href="#b)ox"><b>-b)ox </b></a></dt>
+  <dd>Toggle drawing bounding box around zoomed area. Default: <i>on</i></dd>
+  <dt id="B)Width"><a class="permalink" href="#B)Width"><b>-B)Width
+    </b></a></dt>
+  <dd>Set width in pixels of the edges of the bounding box. Default:
+    <i>4</i></dd>
+  <dt id="BC)olor"><a class="permalink" href="#BC)olor"><b>-BC)olor
+    </b></a></dt>
+  <dd>Set color as a decimal version of an 0xRRGGBB color. Default: <i>55</i>
+      NOTE: bash&amp;zsh let you convert to decimal with, e.g.
+      <i>$((16#B800B8))</i> which produces &quot;MAG)enta&quot;.</dd>
+  <dt id="c)hase"><a class="permalink" href="#c)hase"><b>-c)hase </b></a></dt>
+  <dd>Toggle chasing pointer to define the zoomed area. Default: <i>on</i></dd>
+  <dt id="t)ime"><a class="permalink" href="#t)ime"><b>-t)ime
+    <i>MICROSEC</i></b></a></dt>
+  <dd>Time to sleep between image captures. Default: <i>40_000</i> (~25 FPS).
+      <i>0</i> means sample &amp; repaint as fast as possible.</dd>
+  <dt id="w)watch"><a class="permalink" href="#w)watch"><b>-w)watch
+    <i>PATH</i></b></a></dt>
+  <dd>Monitor <b>st_mtime</b> of file <i>PATH</i>. If it changes, print
+      configuration &amp; toggle pointer chasing. This is useful if focus
+      follows pointers to chase to a specific area, and then display/freeze it
+      by invoking a WM action that updates <i>WATCH</i>.</dd>
+  <dt id="h"><a class="permalink" href="#h"><b>-h</b>|<b>--help</b></a></dt>
+  <dd>Print a brief help message for the CLI.</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="FILES"><a class="permalink" href="#FILES">FILES</a></h1>
+<p class="Pp"><i>${XM_CONFIG:-${XDG_CONFIG_HOME:-$HOME/.config}}/xm</i> can set
+    pre-command-line values for all above using full length option keys in Nim
+    <i>parsecfg</i> syntax (~INI-file).</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="DESCRIPTION"><a class="permalink" href="#DESCRIPTION">DESCRIPTION</a></h1>
+<p class="Pp"><b>xm</b> displays in its window a magnified area of the X11
+    display (which can include the magnified area itself). Users can
+    interactively change various things as described below.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="INTERACTIVE_WINDOW_COMMANDS"><a class="permalink" href="#INTERACTIVE_WINDOW_COMMANDS">INTERACTIVE
+  WINDOW COMMANDS</a></h1>
+<p class="Pp">Once xm is running, users can enter keyboard commands:</p>
+<dl class="Bl-tag">
+  <dt id="x/y"><a class="permalink" href="#x/y"><b>x/y</b></a></dt>
+  <dd>NEXT +, -, g applies to only this axis, not both axes</dd>
+  <dt id="s"><a class="permalink" href="#s"><b>s</b></a></dt>
+  <dd>NEXT +, - applies to <i>larger</i> of the two step sizes for arrows</dd>
+  <dt><b>+/-</b></dt>
+  <dd>increase / decrease selected value by 1</dd>
+  <dt id="g"><a class="permalink" href="#g"><b>g</b></a></dt>
+  <dd>toggle Grid on &amp; off -- sort of. Rather than a simple toggle, the
+      action is <i>align = scale - align</i>. So, if alignment is never changed
+      from 0, it is a toggle. Axis-specific <b>g</b> re-zeros alignment. E.g.
+      <b>x g y g g</b> resets both aligns &amp; then turns off the grid.</dd>
+  <dt id="Arrow"><a class="permalink" href="#Arrow"><b>Arrow Keys</b></a></dt>
+  <dd>Operate By Shifted/Unshifted <b>S</b>tep Sizes. Mnemonically, <b>Ctrl</b>
+      is about <i>SIZES</i> while <b>Alt</b> is about <i>the GRID</i>.</dd>
+</dl>
+<div class="Bd-indent">
+<dl class="Bl-tag">
+  <dt id="NoModifier"><a class="permalink" href="#NoModifier"><b>NoModifier</b></a></dt>
+  <dd>Pan zoomed area in direction of arrow</dd>
+  <dt id="OnlyCtrl"><a class="permalink" href="#OnlyCtrl"><b>OnlyCtrl</b></a></dt>
+  <dd>Resize zoom view window by direction of arrow</dd>
+  <dt id="Ctrl-Alt"><a class="permalink" href="#Ctrl-Alt"><b>Ctrl-Alt</b></a></dt>
+  <dd>Change spacing of xy-grid lines to move grid corners in direction of arrow
+      (&lt;-: -, -&gt;: +)</dd>
+  <dt id="OnlyAlt"><a class="permalink" href="#OnlyAlt"><b>OnlyAlt</b></a></dt>
+  <dd>Change alignment of xy-grid lines to move grid corners in direction of
+      arrow (&lt;-: -, -&gt;: +)</dd>
+</dl>
+</div>
+<dl class="Bl-tag">
+  <dt id="b"><a class="permalink" href="#b"><b>b</b></a></dt>
+  <dd>toggle Box on &amp; off</dd>
+  <dt id="c"><a class="permalink" href="#c"><b>c</b></a></dt>
+  <dd>toggle pointer Chase on &amp; off</dd>
+  <dt id="p"><a class="permalink" href="#p"><b>p</b></a></dt>
+  <dd>Print a current configuration replicating relaunch command</dd>
+  <dt id="h~2"><a class="permalink" href="#h~2"><b>h</b></a></dt>
+  <dd>toggle Help xor-overlay (activated by any illegal key)</dd>
+  <dt id="q"><a class="permalink" href="#q"><b>q</b></a></dt>
+  <dd>Quit, printing frames processed</dd>
+</dl>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="SEE_ALSO"><a class="permalink" href="#SEE_ALSO">SEE
+  ALSO</a></h1>
+<p class="Pp"><b>xmag</b>(1x) <b>xzoom</b>(1x) <b>XParseGeometry</b>(3)</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="NOTES"><a class="permalink" href="#NOTES">NOTES</a></h1>
+<p class="Pp">&#x2020; <b>xm</b> is given with no warranty but works for me.</p>
+<p class="Pp">&#x2020; This complements <b>xmag</b> which has a very different
+    &quot;snapshot&quot; usage.</p>
+<p class="Pp">&#x2020; Pointer chasing can compete with both Window Manager (WM)
+    resize ops and <b>xm</b> keyboard panning controls. Just disable chase as
+    needed.</p>
+</section>
+<section class="Sh">
+<h1 class="Sh" id="AUTHOR"><a class="permalink" href="#AUTHOR">AUTHOR</a></h1>
+<p class="Pp">Itai Nahshon &lt;nahshon@best.com&gt; originally wrote
+    <b>xzoom</b> in the mid-1990s. github.com/mbarakatt added pointer tracking
+    to a heavily patched Debian variant. In 2025, Charles Blake rewrote the
+    ideas into Nim <b>xm</b>, dropping rotation &amp; title changes &amp;
+    extending CLI/UI, adding/re-thinking much, such as bounding box draws,
+    chase/box/shm as run-time states, WM interactions, near screen edge
+    behavior, kb-based resize/grid spec/edit/step size, help text overlay, watch
+    files, cfg print, hash-based frame-write skips for &gt;10x speed-up, etc.,
+    etc.</p>
+</section>
+</div>
+<table class="foot">
+  <tr>
+    <td class="foot-date"></td>
+    <td class="foot-os"></td>
+  </tr>
+</table>
+</body>
+</html>
