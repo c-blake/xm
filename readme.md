@@ -13,13 +13,12 @@ nim c -p=../cligen -d:release xm &&
   install -cm755 xm /usr/local/bin &&
   install -cm444 xm.1 /usr/local/share/man/man1
 ```
-Either way, you probably want to create a `$HOME/.config/xm`.  I do at least
-`font = "-adobe-courier-bold-r-normal--34-240-100-100-m-200-iso8859-1"` there,
-but you need that font installed.  Then all you need to do is run `xm&`.  I've
-not yet tried building the binary on anything beyond Linux, but I'd expect most
-BSDs would work well.  { X11 compatibility layers, e.g. XQuartz on OSX, require
-(at least) screen recording perms, but basically if `xmag` works then so should
-`xm`, but it could be some work to get going }.
+Either way, you probably want to create a `$HOME/.config/xm` (`cfg/xm` in the
+repo is an example).  Then all you need to do is run `xm&`.  I've not yet tried
+building the binary on anything beyond Linux, but I'd expect most BSDs would
+work well.  { X11 compatibility layers, e.g.  XQuartz on OSX, require (at least)
+screen recording perms, but basically if `xmag` works then so should `xm`, but
+it could be some work to get going }.
 
 ## Applications
 I have UHD (aka 2160p aka 4K) displays.  I occasionally use old programs like
