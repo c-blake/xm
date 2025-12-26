@@ -34,8 +34,14 @@ screenshot was unzoomable while the surround text was.)  There are surely more
 since "I see" has come to broadly mean "I understand", perhaps culminating in
 "icic" chat-ese { or lately maybe some emoji(s)? }.
 
-It should be pretty fast &| use little CPU.  For small, static 128x128 areas, I
-clocked it at 36000+ FPS on a 2023-era i7-1370P Linux box running vanilla xorg.
+This tool is dynamic - it reads the input area over and over again and can keep
+up with high frame rates updates.  (E.g., if in the example above, were chrome
+scrolling quickly, the zoomed view would also scroll quickly).  Even so, it
+should be pretty fast &| use little CPU.  For small, static 128x128 pixel areas,
+I clocked it at 36000+ FPS on a 2023-era i7-1370P Linux box running vanilla
+xorg.  With CLI flags and keys you can turn on / off the bounding box or chasing
+the pointer or a re-spaceable/shiftable grid etc.  The man page [xm.1](xm.1) has
+more complete documentation.
 
 ## Sources / History
 While a manual re-write in Nim to a degree that copyright makes little sense, it
