@@ -1,0 +1,4 @@
+# Config File for xm - The X Magnifier
+font  = "-adobe-courier-bold-r-normal--34-240-100-100-m-200-iso8859-1"
+fontH = 35      # A bit more spaced than ascent+descent=30 
+BColor=12058808 # 0xB800B8 MAG)enta { bash|zsh: echo $((16#B800B8)) }
