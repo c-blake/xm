@@ -30,9 +30,9 @@ to guide audience attention.  There are web pages where firefox/chrome mess up
 page layouts quite a bit or literally will not zoom the page element you want.
 This bypasses layout complexity using dynamic redraws over an unrelated window.
 (This is the example in the animated GIF of this `readme.md` where a quick
-screenshot was unzoomable while the surround text was.)  There are surely more
-since "I see" has come to broadly mean "I understand", perhaps culminating in
-"icic" chat-ese { or lately maybe some emoji(s)? }.
+screenshot was unzoomable while the surrounding text was.[^1])  There are surely
+more since "I see" has come to broadly mean "I understand", perhaps culminating
+in "icic" chat-ese { or lately maybe some emoji(s)? }.
 
 This tool is dynamic - it reads the input area over and over again and can keep
 up with high frame rates updates.  (E.g., if in the example above, were chrome
@@ -76,3 +76,7 @@ Going forward, consult the version control log.
 Original license is in http://webdiis.unizar.es/pub/unix/X11/xzoom-0.3.tgz . The
 main file in the mbarakatt github has the other.  My license - standard MIT-ISC
 credit-where-it's-due style (as I do here even though it's all new code).
+
+[^1]: In this *specific* case, there was a way to click on the image to give it
+its own browser tab and then zoom that.  That option is not always available and
+or convenient.
