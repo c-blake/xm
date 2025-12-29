@@ -11,7 +11,7 @@ var gS = [30u16,30]; var gO = [0u16,0]  # Horizontal,Vertical Grid Space/Offset
 type ImIx = enum I, O                                   # Image I)n O)ut Index
 var W, H: array[ImIx, cuint]
 
-template pc =                           # ) p)rint c)onfig from Globals&Defaults
+template pc =                           # p)rint c)onfig from Globals&Defaults
   var m = "xm"
   (if mX != 3: m.add &" -x{mX}"); (if mY != 3: m.add &" -y{mY}")
   (if sU != 8: m.add &" -u{sU}"); (if sS != 1: m.add &" -s{sS}")
