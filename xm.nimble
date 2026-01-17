@@ -1,5 +1,5 @@
 # Package
-version     = "1.0.0"
+version     = "1.0.1"
 author      = "Charles Blake"
 description = "Nim rewrite of `xzoom` with many new features"
 license     = "MIT/ISC"
