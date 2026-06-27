@@ -41,9 +41,13 @@ proc xErr(_: ptr Display; e: ptr XErrorEvent): cint{.cdecl.} = # FastOps ~ Racy
     shm = false; imgsMake(); return     # imgsFree() not needed
   E &"rq={e.request_code}.{e.minor_code} res={e.resourceid:x} e={e.error_code}"
 
+proc stop(Hash, h, hsh0: Hash): bool =
+  if Hash != 0 and h == Hash: return true           # Changed to nz target hash
+  if Hash == 0 and warm and h != hsh0: return true  # Changed from initial
+
 template pua(T: typedesc): untyped = ptr UncheckedArray[T]
 template toOa[T](p:pointer;a,b:int):untyped = toOpenArray[T](cast[pua T](p),a,b)
-proc xrd(display="", net=false, inG="8x8+0+0", time=40_000) =
+proc xrd(display="", net=false, inG="8x8+0+0", Hash=0, verb=false, time=40_000) =
   ## Grab root frame buffer rectangles @`time`-driven rate & print time & exit
   ## as soon as Rectangle Hash Differs across a frame.
   d = nil.XOpenDisplay; if d.isNil: quit "Cannot open display",1
@@ -58,14 +62,18 @@ proc xrd(display="", net=false, inG="8x8+0+0", time=40_000) =
     if shm: discard d.XShmGetImage(s.root, im, iX, iY, AllPlanes) #NimWTFdiscard
     else: d.XGetSubImage s.root, iX, iY, W, H, AllPlanes, ZPixmap, im, 0, 0
     let h = toOa[byte](im.data, 0, im.bytes.int - 1).hash
-    if warm and h != hsh0:
+    if verb: stderr.write &"{epochTime():.9f} Hash: {h}\n"
+    if stop(Hash, h, hsh0):
       let t1 = epochTime()
-      echo &"{t1:.9f} {(t1-t0)/nFrame.float:.9f} sec/frame_amortized"; quit 0
+      echo &"{t1:.9f} {(t1 - t0)/nFrame.float:.9f} sec/frame_amortized"
+      quit 0
     hsh0 = h; warm = true
     inc nFrame # Late bump so in echo above number of inter-frame time intervals
 
 when isMainModule: import cligen;include cligen/mergeCfgEnv; dispatch xrd,help={
-  "display"  : "X11 display to use; `$DISPLAY` also works",
-  "net"      : "force network graphics, not X11 Shm",
-  "inG"      : "input rectangle X win geometry",
-  "time"     : "extra delay between frames in microseconds"}
+  "display": "X11 display to use; `$DISPLAY` also works",
+  "net"    : "force network graphics, not X11 Shm",
+  "inG"    : "input rectangle X win geometry",
+  "Hash"   : "exit when Hash value becomes this",
+  "verb"   : "Print final Hash value of area to stderr",
+  "time"   : "extra delay between frames in microseconds"}
