@@ -1,4 +1,4 @@
-import std/[syncio,formatFloat,strformat,hashes,times], x # 0) IMPORTS&GLOBALS
+import std/[syncio, strformat, hashes, times], x          # 0) IMPORTS&GLOBALS
 template E(a: varargs[untyped]) = stderr.write a, "\n"    # echo but ->stderr
 
 var d: ptr Display; var s: ptr Screen   # X11 & CLI Globals
