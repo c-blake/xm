@@ -1,5 +1,5 @@
 # Package
-version     = "1.0.2"
+version     = "1.1.0"
 author      = "Charles Blake"
 description = "Nim rewrite of `xzoom` with many new features"
 license     = "MIT/ISC"
@@ -7,4 +7,4 @@ installExt  = @[ "nim" ]
 bin         = @[ "xm", "xmpkg/xrd" ]
 
 # Dependencies
-requires "nim >= 2.2.0", "cligen >= 1.10.0"
+requires "nim >= 2.2.0", "cligen >= 1.11.0"
